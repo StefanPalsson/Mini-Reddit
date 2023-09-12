@@ -1,0 +1,41 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .reddit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #1A1A1B;
+    color: white;
+  }
+  
+  .logo {
+    font-size: 24px;
+  }
+  
+  .search-input {
+    width: 300px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .user-options {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .reddit-sidebar {
+    width: 200px;
+    margin-right: 20px;
+  }
+  
+  .reddit-main-content {
+    flex-grow: 1;
+  }
+  
