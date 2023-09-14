@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { get } from '../api/api';
 import '../styles/MainPage.css';
 
+import Users from '../components/Users'
+
 function MainPage() {
   const [posts, setPosts] = useState([]);
 
@@ -45,7 +47,8 @@ function MainPage() {
               <strong>Tags: </strong>{post.tags.join(', ')}
             </div>
             <div>
-              <strong>Författare: </strong>{post.userId}
+              <strong>Författare:<Users userId={post.userId} />
+              </strong> 
             </div>
           </div>
         ))}

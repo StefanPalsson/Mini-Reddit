@@ -1,58 +1,62 @@
-import React, { useState, useEffect } from 'react';
-import { createUser, getUser } from '../api/api';
-import SinglePostPage from './SinglePostPage';
+import { useState,useEffect } from "react";
 
-// function Users() {
-    
-//     // const [username, setUsername] = useState('')
-//     // const [password, setPassword]
-//     // }
-//     const [users, setUsers] = useState([]);
+import React from "react";
 
-//     const getUsersRequest= async () => {
-//         const url = 'https://dummyjson.com/users';
+const Users = ({ userId }) => {
+    const [userInfo, setUserInfo] = useState(null);
+    const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      async function fetchUser() {
+        try {
+          const response = await fetch(`https://dummyjson.com/users/${userId}`);
+          if (!response.ok) {
+            throw new Error(`Failed to fetch user with status: ${response.status}`);
+          }
+          const userData = await response.json();
+          console.log('Fetched user data:', userData);
+          setUserInfo(userData);
+          setLoading(false);
+        } catch (error) {
+          console.error(error);
+          setLoading(false);
+        }
+      }
+  
+      fetchUser();
+    }, [userId]);
+  
     
-//         const response = await fetch(url);
-//         const responseJson = await response.json();
-    
-//         console.log(response);
-    
-//     }
 
-const Users = () => {
+    if (loading) {
+      return <span>Loading user...</span>;
+    }
+  
+    if (userInfo) {
+      return (
+        <span>
+          {userInfo.name} ({userInfo.email})
+        </span>
+      );
+    }
+  
+    return <span>User not found</span>; // Handle the case where user data is not available
+  };
 
-    const [userInfo, setUserInfo] = useState([]);
-    
- 
-        
-    useEffect (() => {
-        const usersUrl = 'https://dummyjson.com/users';
-        fetch(usersUrl)
-        .then ((response) => {
-            return response.json()
-    
-        .then ((data) => {
-            setUserInfo(data);
-        })
-    })
-
-    
-    
-}, [])
-
-    return (
-        <div>
-            <h2>Usersinfo</h2>
-            <ul>
-                {userInfo.map((user) => (
-                    <li key ={user.id}>
-                    <p>Name: {user.name}</p>
-                    </li>
-    ))}
-            </ul>
-        </div>
-    );
-    
-}
-
-export default Users;
+  //     <div>
+  //       <h2>Users Info</h2>
+  //       <ul>
+  //         {userInfo.map((user) => (
+  //           <li key={user.id}>
+  //             <p>Name: {user.name}</p>
+  //             <p>Email: {user.email}</p>
+  //             {/* Add more user information as needed */}
+  //           </li>
+  //         ))}
+  //       </ul>
+  //     </div>
+  //   );
+  // };
+  
+  export default Users;
+  

@@ -11,8 +11,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        {<Users />}
-        <Route path="/" element={<Users />} />
+        {/* {<Users />}
+        <Route path="/components/Users.js" element={<Users />} /> */}
         <Route path="/post/:id" element={<SinglePostPage />} />
       </Routes>
     </Router>
