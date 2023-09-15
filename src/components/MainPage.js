@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { get } from '../api/api';
 import '../styles/MainPage.css';
+import CreatePost from './CreatePost';
 
 function MainPage() {
   const [posts, setPosts] = useState([]);
@@ -49,6 +50,7 @@ function MainPage() {
             </div>
           </div>
         ))}
+        <CreatePost/>
       </main>
     </div>
   );
