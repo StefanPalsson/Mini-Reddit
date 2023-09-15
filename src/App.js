@@ -6,17 +6,14 @@ import Users from './components/Users.js';
 
 function App() {
   return (
-
-    
     <Router>
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        {<Users />}
-        <Route path="/" element={<Users />} />
         <Route path="/post/:id" element={<SinglePostPage />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/" element={<MainPage />} />
       </Routes>
     </Router>
-  );
+  )
 }
 
-export default App
+export default App;
