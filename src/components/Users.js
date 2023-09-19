@@ -5,6 +5,7 @@ import React from "react";
 const Users = ({ userId }) => {
   const [userInfo, setUserInfo] = useState(null);
   const [loading, setLoading] = useState(true);
+// states för userinfo och setUserInfo, samt loading och setLoading
 
   useEffect(() => {
     async function fetchUser() {
@@ -39,7 +40,7 @@ const Users = ({ userId }) => {
         {userInfo.lastName} &nbsp;
        
       </span>
-    );
+    );// skriver ut firstname och lastname på författare
   }
 
   return <span>User not found</span>; // om user data inte finns
