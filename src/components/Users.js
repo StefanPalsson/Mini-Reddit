@@ -1,4 +1,20 @@
-import { useState, useEffect } from "react";
+
+import React, { useState, useEffect } from 'react';
+
+const Users = () => {
+    const [userInfo, setUserInfo] = useState([]);
+    
+    useEffect (() => {
+        const usersUrl = 'https://dummyjson.com/users';
+        fetch(usersUrl)
+        .then ((response) => {
+            return response.json()
+        })
+        .then ((data) => {
+            setUserInfo(data);
+        })
+    }, [])
+
 
 import React from "react";
 
@@ -35,6 +51,7 @@ const Users = ({ userId }) => {
 
   if (userInfo) {
     return (
+
       <span> &nbsp;
         {userInfo.firstName} &nbsp;
         {userInfo.lastName} &nbsp;
@@ -45,5 +62,6 @@ const Users = ({ userId }) => {
 
   return <span>User not found</span>; // om user data inte finns
 };
+
 
 export default Users;

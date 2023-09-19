@@ -1,0 +1,42 @@
+.form-container {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    background-color: black;
+    overflow-y: disabled;
+}
+.form {
+    flex-direction: column;
+    display: flex;
+    width: 65%;
+    padding: 3rem;
+    background-color: white;
+    margin: 2rem;
+    border-radius: 0.4rem;
+}
+input, textarea {
+    width: 100%;
+    padding: 0.4rem;
+}
+.form label {
+    margin-top: 0.5rem;
+    margin-right: 0.2rem;
+}
+.submitBtn {
+    display: flex;
+    justify-content: end;
+}
+input[type="submit"] {
+    background-color: black;
+    border: none;
+    margin-top: 0.5rem;
+    color: white;
+    width: 30%;
+    border-radius: 0.3rem;
+    padding: 0.4rem;
+    text-transform: uppercase;
+}
+input[type="submit"]:hover {
+    background-color: rgb(40, 104, 104);
+    font-weight: 400;
+}
