@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getSinglePost } from '../api/api';
-import { getUser } from '../api/usersapi';
+
 import Users from './Users';
 
 function SinglePostPage() {
