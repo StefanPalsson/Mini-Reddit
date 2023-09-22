@@ -48,8 +48,8 @@ function MainPage() {
               <strong>Tags: </strong>{post.tags.join(', ')}
             </div>
             <div>
-              <strong>Författare:<Users userId={post.userId} />
-              </strong> 
+              <Users userId={post.userId} />
+              
         
             </div>
           </div>

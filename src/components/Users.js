@@ -1,52 +1,45 @@
-
 import React, { useState, useEffect } from 'react';
+import { getAllUsers } from '../api/api';
 
 
-
-const Users = ({ userId }) => {
-  const [userInfo, setUserInfo] = useState(null);
+const Users = ({ userId }) => { // hämtar userdId som prop
+  const [user, setUser] = useState(null); //initiliserar till nulll
   const [loading, setLoading] = useState(true);
-// states för userinfo och setUserInfo, samt loading och setLoading
 
   useEffect(() => {
-    async function fetchUser() {
-      try {
-        const response = await fetch(`https://dummyjson.com/users/${userId}`);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch user with status: ${response.status}`);
+    getAllUsers() // Fetchar all users
+      .then(userArray => {
+        const matchingUser = userArray.find(user => user.id === userId); // sparar user id i variabeln matching user....  Find user by userId from the user array
+        if (matchingUser) {
+          setUser(matchingUser); // sätter matching user eller kastar error
+        } else {
+          throw new Error(`User not found for userId: ${userId}`);
         }
-        const userData = await response.json();
-        console.log('Fetched user data:', userData);
-        setUserInfo(userData);
-        setLoading(false);
-      } catch (error) {
+        setLoading(false); // laddar ej users
+      })
+      .catch(error => {
         console.error(error);
         setLoading(false);
-      }
-    }
-
-    fetchUser();
-  }, [userId]);
-
-
+      });
+  }, [userId]); 
 
   if (loading) {
-    return <span>Loading user...</span>;
+    return <span>Loading users...</span>;
   }
 
-  if (userInfo) {
+  if (user) {
     return (
-
-      <span> &nbsp;
-        {userInfo.firstName} &nbsp;
-        {userInfo.lastName} &nbsp;
-       
-      </span>
-    );// skriver ut firstname och lastname på författare
+      <div>
+        <span> 
+          <strong>Författare: {user.firstName} {user.lastName}
+          </strong>
+          </span> 
+        
+      </div>
+    );
   }
 
-  return <span>User not found</span>; // om user data inte finns
+  return <span>User not found</span>;
 };
-
 
 export default Users;
