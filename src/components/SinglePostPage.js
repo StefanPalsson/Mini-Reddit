@@ -47,8 +47,9 @@ function SinglePostPage() {
         <strong>Tags: </strong>{post.tags.join(', ')}
       </div>
       <div>
-        <strong>Författare: </strong><Users userId={post.userId} />
+        <Users userId={post.userId} />
       </div>
+      
     </div>
   );
 }
