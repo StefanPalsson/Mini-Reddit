@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAllUsers } from '../api/api';
+import {getUser} from '../api/api';
 
 
 const Users = ({ userId }) => { // hämtar userdId som prop
@@ -7,21 +7,21 @@ const Users = ({ userId }) => { // hämtar userdId som prop
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getAllUsers() // Fetchar all users
-      .then(userArray => {
-        const matchingUser = userArray.find(user => user.id === userId); // sparar user id i variabeln matching user....  Find user by userId from the user array
-        if (matchingUser) {
-          setUser(matchingUser); // sätter matching user eller kastar error
+    getUser(userId) // Fetch a single user by userId
+      .then(user => {
+        if (user) {
+          setUser(user);
         } else {
-          throw new Error(`User not found for userId: ${userId}`);
+          console.error(`User not found for userId: ${userId}`);
         }
-        setLoading(false); // laddar ej users
+        setLoading(false);
       })
       .catch(error => {
         console.error(error);
         setLoading(false);
       });
-  }, [userId]); 
+  }, [userId]);
+
 
   if (loading) {
     return <span>Loading users...</span>;
