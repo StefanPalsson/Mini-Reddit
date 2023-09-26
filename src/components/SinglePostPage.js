@@ -32,6 +32,16 @@ function SinglePostPage() {
     // fetchComments();
   }, [id]);
 
+  const handleClick = () => {
+    if (post) {
+      const updatedPost = {
+        ...post,
+        reactions: post.reactions + 1,
+      };
+      setPost(updatedPost);
+    }
+  };
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -50,7 +60,7 @@ function SinglePostPage() {
       </div>
       <div>
         <strong>Reactions: {post.reactions}</strong>
-        <button onClick={""}>React on button</button>
+        <button onClick={handleClick}>React on button</button>
       </div>
       <div>
         <Users userId={post.userId} />
