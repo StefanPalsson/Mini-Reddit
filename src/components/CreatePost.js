@@ -14,16 +14,39 @@ import '../styles/MainPage.css';
 
 TODO change props passed to this function
 */
-function CreatePost() {
+
+
+
+function CreatePost({setPosts}) {
     const [user, setUser] = useState([]);
     const [inputs, setInputs] = useState({});
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        addPost(inputs)
-        //clear inputfields 
-        setInputs({})
-    };
+          // new post
+    const newPost = {
+        title: inputs.title,
+        body: inputs.content,
+        userId: parseInt(inputs.id), // user id genom id
+        tags: [], // tags?
+      };
+  
+      //  adda newpost till staten
+      setPosts((prevPosts) => [...prevPosts, newPost]);
+
+        // rensa input
+    setInputs({});
+  };
+
+  // Tog bort det här för att posten inte ska komma från apiet utan från kommentarsfältet 
+  
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     await addPost(inputs)
+    //     //clear inputfields 
+    //     setInputs({})
+    // };
+
     const handleChange = (event) => {
         console.log(event.target.value);
         const name = event.target.name;

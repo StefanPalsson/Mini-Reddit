@@ -38,7 +38,8 @@ export const getUser = async (userId) => {
 
 
 const addPost = async (result) => {
-  const res = await fetch(`${baseURL}/posts/add`, {
+  // const res = await fetch(`${baseURL}/posts/add`, {
+    await fetch(`${baseURL}/posts/add`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

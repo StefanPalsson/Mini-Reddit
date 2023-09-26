@@ -49,12 +49,10 @@ function MainPage() {
             </div>
             <div>
               <Users userId={post.userId} />
-              
-        
             </div>
           </div>
         ))}
-        <CreatePost/>
+         <CreatePost setPosts={setPosts} />
       </main>
     </div>
   );

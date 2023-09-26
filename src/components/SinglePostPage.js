@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getSinglePost } from '../api/api';
+import AddComment from '../components/AddComment'
 
 import Users from './Users';
 
@@ -29,6 +30,7 @@ function SinglePostPage() {
     }
 
     fetchData();
+    // fetchComments();
   }, [id]);
 
   if (isLoading) {
@@ -49,7 +51,17 @@ function SinglePostPage() {
       <div>
         <Users userId={post.userId} />
       </div>
-      
+{/*  
+      <div>
+        {/* <CreateComment /> Component for adding comments */}
+      {/* </div>
+      <div>
+        <h3>Comments:</h3>
+        {comments.map(comment => (
+          <Comment key={comment.id} body={comment.body} userId={comment.userId} />
+        ))}
+      </div> */} */}
+
     </div>
   );
 }
