@@ -33,6 +33,16 @@ function SinglePostPage() {
     // fetchComments();
   }, [id]);
 
+  const handleClick = () => {
+    if (post) {
+      const updatedPost = {
+        ...post,
+        reactions: post.reactions + 1,
+      };
+      setPost(updatedPost);
+    }
+  };
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -46,12 +56,17 @@ function SinglePostPage() {
       <h2>{post.title}</h2>
       <p>{post.body}</p>
       <div>
-        <strong>Tags: </strong>{post.tags.join(', ')}
+        <strong>Tags: </strong>
+        {post.tags.join(", ")}
+      </div>
+      <div>
+        <strong>Reactions: {post.reactions}</strong>
+        <button onClick={handleClick}>React on button</button>
       </div>
       <div>
         <Users userId={post.userId} />
       </div>
-{/*  
+      {/*  
       <div>
         {/* <CreateComment /> Component for adding comments */}
       {/* </div>
