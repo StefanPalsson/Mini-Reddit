@@ -1,8 +1,11 @@
 .main-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items:flex-start;
+    justify-content: center;
+    background-color: grey;
   }
+
   
   .reddit-header {
     display: flex;
@@ -31,11 +34,29 @@
   }
   
   .reddit-sidebar {
-    width: 200px;
-    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
   }
   
   .reddit-main-content {
     flex-grow: 1;
   }
   
+  .reddit-main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .post-preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 20%;
+    border:1px solid #1A1A1B;
+    border-radius: 5px;
+  }

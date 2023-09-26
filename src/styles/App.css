@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  align-items: center;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 20%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(161, 147, 147, 0.336);
+}
