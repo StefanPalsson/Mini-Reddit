@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { getSinglePost } from '../api/api';
-import AddComment from '../components/AddComment'
-
-import Users from './Users';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getSinglePost } from "../api/api";
+import AddComment from "../components/AddComment";
+import Users from "./Users";
 
 function SinglePostPage() {
   const [post, setPost] = useState(null);
@@ -46,12 +45,17 @@ function SinglePostPage() {
       <h2>{post.title}</h2>
       <p>{post.body}</p>
       <div>
-        <strong>Tags: </strong>{post.tags.join(', ')}
+        <strong>Tags: </strong>
+        {post.tags.join(", ")}
+      </div>
+      <div>
+        <strong>Reactions: {post.reactions}</strong>
+        <button onClick={""}>React on button</button>
       </div>
       <div>
         <Users userId={post.userId} />
       </div>
-{/*  
+      {/*  
       <div>
         {/* <CreateComment /> Component for adding comments */}
       {/* </div>
@@ -60,8 +64,7 @@ function SinglePostPage() {
         {comments.map(comment => (
           <Comment key={comment.id} body={comment.body} userId={comment.userId} />
         ))}
-      </div> */} */}
-
+      </div> */}{" "}
     </div>
   );
 }
