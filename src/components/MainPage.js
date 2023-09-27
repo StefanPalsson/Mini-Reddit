@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { get, post } from "../api/api";
 import "../styles/MainPage.css";
 import CreatePost from "./CreatePost";
+import CreateComment from "./CreateComment";
 
 import Users from "../components/Users";
 
@@ -61,6 +62,9 @@ function MainPage() {
             </div>
             <div>
               <Users userId={post.userId} />
+            </div>
+            <div>
+              <CreateComment/>
             </div>
             <div>
               <strong>Reactions: {post.reactions}</strong>

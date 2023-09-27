@@ -50,7 +50,6 @@ const addPost = async (result) => {
   })
   .then(res => res.json())
   .then(console.log)
-  
 };
 
 
@@ -60,6 +59,20 @@ const getAllUsers = async () => {
   const userArray = data.users.map((user) => user);
   return userArray;
 };
+const addComment = async (inputs) => {
+  const res = await fetch("https://dummyjson.com/comments/add", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      body: inputs.comment,
+      userId: inputs.id,
+      postId: 1
+    }),
+  })
+  .then((res) => res.json())
+  .then(console.log)
+}
 
-
-export { addPost, getAllUsers };
+export { addPost, getAllUsers, addComment };
