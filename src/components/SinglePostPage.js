@@ -4,6 +4,7 @@ import { getSinglePost } from '../api/api';
 import AddComment from '../components/AddComment'
 import '../styles/App.css';
 import Users from './Users';
+import '../styles/MainPage.css'
 
 function SinglePostPage() {
   const [post, setPost] = useState(null);
@@ -52,6 +53,7 @@ function SinglePostPage() {
   }
 
   return (
+    <div className='singel-post'>  
     <div className='post'>
       <h2>{post.title}</h2>
       <p>{post.body}</p>
@@ -76,8 +78,8 @@ function SinglePostPage() {
           <Comment key={comment.id} body={comment.body} userId={comment.userId} />
         ))}
       </div> */} 
-
     </div>
+  </div>  
   );
 }
 

@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items:flex-start;
     justify-content: center;
-    background-color: grey;
+    background-color: #181E1E;
   }
 
   
@@ -51,7 +51,7 @@
   }
 
   .post-preview {
-    display: flex;
+    display: block;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -59,4 +59,24 @@
     height: 20%;
     border:1px solid #1A1A1B;
     border-radius: 5px;
+    background-color:#0D4B4B ;
+    padding: 10px;
+  }
+  
+  .post-preview:hover  {
+    display: block;
+    background-color: #0F5454;
+  }
+
+  button {
+    background-color: #0A3737;
+    border: 2px solid black;
+    color: black;
+    padding: 2px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px 1px;
+    cursor: pointer;
   }

@@ -4,11 +4,25 @@
 }
 
 .post {
+  display: block;
+  flex-direction: column;
+  width: 30%;
+  height: 20%;
+  padding: 10px;
+  border:1px solid #1A1A1B;
+  border-radius: 5px;
+  background-color:#0D4B4B ;
+}
+
+.singel-post {
   display: flex;
   flex-direction: column;
-  width: 70%;
-  height: 20%;
   justify-content: center;
   align-items: center;
-  background-color: rgba(161, 147, 147, 0.336);
+  padding-top: 200px;
+ }
+
+.post:hover  {
+  display: block;
+  background-color: #0F5454;
 }
