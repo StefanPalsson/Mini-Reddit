@@ -71,13 +71,13 @@
   button {
     color: black;
     text-align: center;
-    font-size: 10px;
+    font-size: 8px;
     cursor: pointer;
     background-color: black;
     border: none;
     margin-top: 0.5rem;
     color: #8E9191;
-    width: 20%;
+    width: 100px;
     border-radius: 0.3rem;
     padding: 0.4rem;
     text-transform: uppercase;
