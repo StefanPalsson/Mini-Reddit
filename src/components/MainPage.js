@@ -28,14 +28,14 @@ function MainPage() {
 
   return (
     <div className="main-container">
-      <header className="reddit-header">
+      {/* <header className="reddit-header">
         <div className="logo">RedditClone</div>
         <input type="text" placeholder="Sök" className="search-input" />
         <div className="user-options">
           <button>Login</button>
           <button>Register</button>
         </div>
-      </header>
+      </header> */}
       <aside className="reddit-sidebar">
         <h3>Subreddits</h3>
         {}
