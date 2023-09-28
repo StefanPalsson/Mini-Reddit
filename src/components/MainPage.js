@@ -64,9 +64,6 @@ function MainPage() {
               <Users userId={post.userId} />
             </div>
             <div>
-              <CreateComment/>
-            </div>
-            <div>
               <strong>Reactions: {post.reactions}</strong><br/>
               <button onClick={() => handleClick(post.id)}>
                 React with post

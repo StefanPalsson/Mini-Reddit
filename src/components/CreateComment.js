@@ -1,45 +1,10 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import { addComment, getAllUsers } from '../api/api';
-import Users from './Users';
+import { useState } from 'react';
+import { addComment } from '../api/api';
 
-//På sidan skall också följande vara möjligt:
-
-// Skriva ny kommentar på inlägget
-
-// Ni skall anroppa API:et för att lägga till nya kommentarer (se endpoint)
-
-// Tänk på att API:et inte faktiskt ändrar kommentar-databasen så ni måste hantera det lokalt
-
-// Reagera (ökar bara reactions antalet)
-
-
-function Comment() {
+function CreateComment({setComments}) {
 
   const [inputs, setInputs] = useState({});
-  const [user, setUser] = useState([]);
-  const [btnClicked, setbtnClicked] = useState(false);
-
-  const [comments, setComments] = useState([])
-
-  const [mounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    getAllUsers()
-      .then(
-        (result) => {
-          setIsMounted(true);
-          setUser(result);
-        }
-      )
-      .catch(
-        (error) => {
-          console.log(error)
-        }
-      )
-  }, [])
-
-  //Beskrivning uppgift # Ni skall anroppa API:et för att lägga till nya kommentarer (se endpoint)
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -53,60 +18,48 @@ function Comment() {
     //add comment to server
     addComment(inputs);
 
+    //store input in object
     const newComment = {
       title: inputs.id,
       body: inputs.comment,
-      userId: inputs.id, 
-      tags: [],
+      userId: 1,
+      user: {username: inputs.username}
     };
-    // update commentstate with new value
+
+    // update comment state with new value
     setComments((initialval) => [...initialval, newComment]);
     // clear input
     setInputs({});
   }
   return (
     <div>
-      <button
-        onClick={() => {
-          setbtnClicked(true);
-        }}
-      >
-        Add Comment
-      </button>
-      {/* display form when user clicks "add comment button" */}
-      {btnClicked && mounted ? (
         <>
           <form className='commentForm' onSubmit={handleSubmit}>
-            <h3>Write something useful or nice</h3>
+          <h3>Write something useful or nice</h3>
+          <label>Comment: <br></br>
             <input
               type="text"
               name="comment"
               value={inputs.comment || ""}
               onChange={handleChange}
             />
+            </label><br></br>
             <label>
-              User: <br />
-              <select name="id" onChange={handleChange}>
-                <option defaultValue hidden> {'-----------------'} </option>
-                  {user.map((user) => <option key={user.id} value={user.id || ""}> {user.firstName}
-                </option>)}
-              </select>
+              User: <br></br>
+              <input
+                type="text"
+                name="username"
+                value={inputs.username || ""}
+                onChange={handleChange}
+              />
             </label>
             <button type='submit'>Send</button>
           </form>
-          {comments ? (
-            comments.map((comment, idx) => 
-              <div key={idx}>
-                <div><strong>Comment: </strong>{comment.body}</div>
-                <Users userId={comment.userId} />
-              </div>
-            )
-          ): null}
         </>
-      ) : null
-      }
     </div>
   )
 }
 
-export default Comment;
+export default CreateComment;
+
+
