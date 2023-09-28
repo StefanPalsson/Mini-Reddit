@@ -14,7 +14,7 @@
     width: 100%;
     padding: 10px;
     background-color: #1A1A1B;
-    color: white;
+    color: #C1C3C3;
   }
   
   .logo {
@@ -70,7 +70,7 @@
 
   button {
     background-color: #0A3737;
-    border: 2px solid black;
+    border: 1px solid black;
     color: black;
     padding: 2px 4px;
     text-align: center;
