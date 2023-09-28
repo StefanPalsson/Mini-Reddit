@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { get, post } from "../api/api";
+import { get } from "../api/api";
 import "../styles/MainPage.css";
 import CreatePost from "./CreatePost";
-import CreateComment from "./CreateComment";
-
 import Users from "../components/Users";
 
 function MainPage() {
@@ -12,6 +10,7 @@ function MainPage() {
 
   useEffect(() => {
     async function fetchPosts() {
+      console.log()
       const responseData = await get("/posts");
       setPosts(responseData.posts);
     }
