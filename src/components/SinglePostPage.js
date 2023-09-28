@@ -62,7 +62,7 @@ function SinglePostPage() {
         {post.tags.join(", ")}
       </div>
       <div>
-        <strong>Reactions: {post.reactions}</strong>
+        <strong>Reactions: {post.reactions}</strong><br/>
         <button onClick={handleClick}>React on button</button>
       </div>
       <div>
