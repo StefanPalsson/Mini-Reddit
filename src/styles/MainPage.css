@@ -14,7 +14,7 @@
     width: 100%;
     padding: 10px;
     background-color: #1A1A1B;
-    color: #C1C3C3;
+    color: #8E9191;
   }
   
   .logo {
@@ -69,14 +69,20 @@
   }
 
   button {
-    background-color: #0A3737;
-    border: 1px solid black;
     color: black;
-    padding: 2px 4px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 2px 1px;
+    font-size: 10px;
     cursor: pointer;
+    background-color: black;
+    border: none;
+    margin-top: 0.5rem;
+    color: #8E9191;
+    width: 20%;
+    border-radius: 0.3rem;
+    padding: 0.4rem;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    color: #8E9191;
   }

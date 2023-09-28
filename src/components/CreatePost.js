@@ -62,7 +62,7 @@ function CreatePost({setPosts}) {
             <form className="form" onSubmit={handleSubmit}>
                 <h2>Create Post</h2>
                 <label>
-            Title:
+            Title:<br/>
             <input
                 type="text"
                 name="title"
@@ -72,7 +72,7 @@ function CreatePost({setPosts}) {
             />
             </label>
             <label>
-            Content:
+            Content:<br/>
             <textarea
                 type="text"
                 name="content"

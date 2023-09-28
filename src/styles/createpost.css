@@ -8,15 +8,16 @@
 .form {
     flex-direction: column;
     display: flex;
-    width: 65%;
+    width: 40%;
     padding: 3rem;
-    background-color: white;
+    background-color: #0D4B4B;
     margin: 2rem;
     border-radius: 0.4rem;
 }
 input, textarea {
-    width: 100%;
+    width: 80%;
     padding: 0.4rem;
+    background-color: #8E9191;
 }
 .form label {
     margin-top: 0.5rem;
@@ -39,4 +40,8 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: rgb(40, 104, 104);
     font-weight: 400;
+}
+
+select {
+    background-color: #8E9191;
 }
