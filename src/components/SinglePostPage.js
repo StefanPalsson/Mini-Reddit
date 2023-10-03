@@ -65,14 +65,14 @@ function SinglePostPage() {
         {post.tags.join(", ")}
       </div>
       <div>
-        <strong>Reactions: {post.reactions}</strong>
+        <strong>Reactions: {post.reactions}</strong><br/>
         <button onClick={handleClick}>React on button</button>
       </div>
         <Users userId={post.userId} />
       <div>
         {/* //display comments from api  */}
         {comments.map((comment, idx) =>
-          <div key={idx}>
+          <div className='comment' key={idx}>
             <div><strong>Comment: </strong>{comment.body}</div>
             <div><strong>Username:</strong> {comment.user.username}</div>
           </div>)} 

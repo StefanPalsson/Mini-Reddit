@@ -22,6 +22,16 @@
   padding-top: 200px;
  }
 
+ .comment {
+  display: block;
+  flex-direction: column;
+  padding: 10px;
+  border:1px solid #1A1A1B;
+  border-radius: 5px;
+  background-color:#0D4B4B ; 
+  margin-top: 10px;
+ }
+
 .post:hover  {
   display: block;
   background-color: #0F5454;
