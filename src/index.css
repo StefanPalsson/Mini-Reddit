@@ -16,3 +16,7 @@ code {
 a {
   color: #8E9191;
 }
+
+.post-hover {
+  cursor: pointer;
+}

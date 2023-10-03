@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { getAllUsers } from '../api/api';
-import { addPost } from '../api/api';
-import '../styles/createpost.css';
-import '../styles/MainPage.css';
+import React, { useState, useEffect } from "react";
+import { getAllUsers } from "../api/api";
+import { addPost } from "../api/api";
+import "../styles/createpost.css";
+import "../styles/MainPage.css";
 
 /* ASSIGNMENT:
 # Huvudsidan ska också innehålla följande funktionalitet:
@@ -15,87 +15,98 @@ import '../styles/MainPage.css';
 TODO change props passed to this function
 */
 
+function CreatePost({ setPosts, posts }) {
+  const [user, setUser] = useState([]);
+  const [inputs, setInputs] = useState({});
 
+  console.log(posts[-1]);
 
-function CreatePost({setPosts}) {
-    const [user, setUser] = useState([]);
-    const [inputs, setInputs] = useState({});
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-          // new post
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // new post
     const newPost = {
-        title: inputs.title,
-        body: inputs.content,
-        userId: parseInt(inputs.id), // user id genom id
-        tags: [], // tags?
-      };
-  
-      //  adda newpost till staten
-      setPosts((prevPosts) => [...prevPosts, newPost]);
+      //own posts have id 1000+ so we know we have to fetch it from the state instead of the api
+      id: posts[posts.length - 1].id + 1000,
+      title: inputs.title,
+      body: inputs.content,
+      userId: parseInt(inputs.id), // user id genom id
+      tags: [], // tags?
+    };
 
-        // rensa input
+    //  adda newpost till staten
+    setPosts((prevPosts) => [...prevPosts, newPost]);
+    // rensa input
     setInputs({});
   };
 
-  // Tog bort det här för att posten inte ska komma från apiet utan från kommentarsfältet 
-  
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     await addPost(inputs)
-    //     //clear inputfields 
-    //     setInputs({})
-    // };
+  // Tog bort det här för att posten inte ska komma från apiet utan från kommentarsfältet
 
-    const handleChange = (event) => {
-        console.log(event.target.value);
-        const name = event.target.name;
-        const value = event.target.value;
-        setInputs((values) => ({ ...values, [name]: value } ));
-    };
-    useEffect(() => {
-        getAllUsers().then(setUser);
-    }, []);
+  // const handleSubmit = async (e) => {
+  //     e.preventDefault();
+  //     await addPost(inputs)
+  //     //clear inputfields
+  //     setInputs({})
+  // };
 
-    return (
-        <div className='form-container'>
-            <form className="form" onSubmit={handleSubmit}>
-                <h2>Create Post</h2>
-                <label>
-            Title:<br/>
-            <input
-                type="text"
-                name="title"
-                required
-                value={inputs.title || ""}
-                onChange={handleChange}
-            />
-            </label>
-            <label>
-            Content:<br/>
-            <textarea
-                type="text"
-                name="content"
-                rows="4" cols="50"
-                required
-                value={inputs.content || ""}
-                onChange={handleChange}
-            />
-            </label>
-            <label>
-            User: <br/>            
-            <select name="id" onChange={handleChange}>
-                <option defaultValue hidden> {'-----------------'} </option>
-                {user.map((user) =>
-                    <option key={user.id} value={user.id || ""}> { user.firstName }</option>)}
-            </select>
-            </label>                    
-            <div className='submitBtn'>
-                <input type="submit" />
-            </div>
-        </form>
+  const handleChange = (event) => {
+    console.log(event.target.value);
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs((values) => ({ ...values, [name]: value }));
+  };
+  useEffect(() => {
+    getAllUsers().then(setUser);
+  }, []);
+
+  return (
+    <div className="form-container">
+      <form className="form" onSubmit={handleSubmit}>
+        <h2>Create Post</h2>
+        <label>
+          Title:
+          <br />
+          <input
+            type="text"
+            name="title"
+            required
+            value={inputs.title || ""}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Content:
+          <br />
+          <textarea
+            type="text"
+            name="content"
+            rows="4"
+            cols="50"
+            required
+            value={inputs.content || ""}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          User: <br />
+          <select name="id" onChange={handleChange}>
+            <option defaultValue hidden>
+              {" "}
+              {"-----------------"}{" "}
+            </option>
+            {user.map((user) => (
+              <option key={user.id} value={user.id || ""}>
+                {" "}
+                {user.firstName}
+              </option>
+            ))}
+          </select>
+        </label>
+        <div className="submitBtn">
+          <input type="submit" />
+        </div>
+      </form>
     </div>
-    );
+  );
 }
 
 export default CreatePost;
