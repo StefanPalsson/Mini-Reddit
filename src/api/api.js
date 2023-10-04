@@ -1,4 +1,4 @@
-const baseURL = 'https://dummyjson.com';
+const baseURL = "https://dummyjson.com";
 
 export const get = async (endpoint) => {
   const response = await fetch(`${baseURL}${endpoint}`);
@@ -11,11 +11,11 @@ export const get = async (endpoint) => {
 
 export const post = async (endpoint, payload) => {
   const response = await fetch(`${baseURL}${endpoint}`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(payload)
+    body: JSON.stringify(payload),
   });
   if (!response.ok) {
     throw new Error(`Failed to post with status: ${response.status}`);
@@ -28,33 +28,29 @@ export const getSinglePost = async (postId) => {
   return get(`/posts/${postId}`);
 };
 
-export const createUser = async (username, password, email) => {
-  
-};
+export const createUser = async (username, password, email) => {};
 
 export const getUser = async (userId) => {
   return get(`/users/${userId}`);
 };
 
-
 const addPost = async (result) => {
   // const res = await fetch(`${baseURL}/posts/add`, {
-    await fetch(`${baseURL}/posts/add`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+  await fetch(`${baseURL}/posts/add`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       title: `title`,
       userId: `${result.id}`,
-      content: `${result.content}`
-    })
+      content: `${result.content}`,
+    }),
   })
-  .then(res => res.json())
-  .then(console.log)
+    .then((res) => res.json())
+    .then(console.log);
 };
 
-
 const getAllUsers = async () => {
-  let res = await fetch('https://dummyjson.com/users');
+  let res = await fetch("https://dummyjson.com/users");
   const data = await res.json();
   const userArray = data.users.map((user) => user);
   return userArray;
@@ -68,11 +64,11 @@ const addComment = async (inputs) => {
     body: JSON.stringify({
       body: inputs.comment,
       userId: inputs.id,
-      postId: 1
+      postId: 1,
     }),
   })
-  .then((res) => res.json())
-  .then(console.log)
-}
+    .then((res) => res.json())
+    .then(console.log);
+};
 
 export { addPost, getAllUsers, addComment };

@@ -27,6 +27,7 @@ function CreatePost({ setPosts, posts }) {
     const newPost = {
       //own posts have id 1000+ so we know we have to fetch it from the state instead of the api
       id: posts[posts.length - 1].id + 1000,
+      reactions: 0,
       title: inputs.title,
       body: inputs.content,
       userId: parseInt(inputs.id), // user id genom id
