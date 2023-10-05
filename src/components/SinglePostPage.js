@@ -32,9 +32,9 @@ function SinglePostPage() {
       }
     }
     fetchData();
-  }, [id]);
+  }, [id, location.state.post]);
 
-  //fetch comments from api
+
   useEffect(() => {
     fetch("https://dummyjson.com/comments")
       .then((res) => res.json())

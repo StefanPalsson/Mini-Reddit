@@ -25,7 +25,7 @@ function CreateComment() {
 
     //function to add comment and post it to server, input parameter with data from inputfield
     const addComment = async (input) => {
-         await fetch("https://dummyjson.com/comments/add", {
+        await fetch("https://dummyjson.com/comments/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -43,7 +43,7 @@ function CreateComment() {
                 setPostId(postId + 1);
             });
     };
-    console.log(comments)
+
 
     return (
         <>

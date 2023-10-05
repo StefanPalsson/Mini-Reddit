@@ -11,7 +11,6 @@ function MainPage() {
 
   useEffect(() => {
     async function fetchPosts() {
-      console.log();
       const responseData = await get("/posts");
       setPosts(responseData.posts);
     }

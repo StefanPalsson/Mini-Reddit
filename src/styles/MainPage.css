@@ -36,6 +36,7 @@
 .reddit-sidebar {
   display: flex;
   flex-direction: column;
+  color: #8E9191;
 }
 
 .reddit-main-content {

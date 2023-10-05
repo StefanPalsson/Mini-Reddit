@@ -9,7 +9,6 @@ function CreatePost({ setPosts, posts }) {
   const [user, setUser] = useState([]);
   const [inputs, setInputs] = useState({});
 
-  console.log(posts[-1]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,7 +30,6 @@ function CreatePost({ setPosts, posts }) {
 
 
   const handleChange = (event) => {
-    console.log(event.target.value);
     const name = event.target.name;
     const value = event.target.value;
     setInputs((values) => ({ ...values, [name]: value }));
