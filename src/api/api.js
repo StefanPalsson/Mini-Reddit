@@ -28,7 +28,7 @@ export const getSinglePost = async (postId) => {
   return get(`/posts/${postId}`);
 };
 
-export const createUser = async (username, password, email) => {};
+export const createUser = async (username, password, email) => { };
 
 export const getUser = async (userId) => {
   return get(`/users/${userId}`);

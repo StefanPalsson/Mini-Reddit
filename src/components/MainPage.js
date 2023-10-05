@@ -39,10 +39,10 @@ function MainPage() {
       </header> */}
       <aside className="reddit-sidebar">
         <h3>Subreddits</h3>
-        {}
+        { }
         <Link to="/r/programming">Programming </Link>
         <Link to="/r/science"> Science</Link>
-        {}
+        { }
       </aside>
       <main className="reddit-main-content">
         {posts.map((post) => (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {getUser} from '../api/api';
+import { getUser } from '../api/api';
 
 
 const Users = ({ userId }) => { // hämtar userdId som prop
@@ -30,11 +30,11 @@ const Users = ({ userId }) => { // hämtar userdId som prop
   if (user) {
     return (
       <div>
-        <span> 
+        <span>
           <strong>Författare: {user.firstName} {user.lastName}
           </strong>
-          </span> 
-        
+        </span>
+
       </div>
     );
   }

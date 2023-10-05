@@ -7,7 +7,7 @@ import Navbar from './components/Navbar';
 function App() {
   return (
     <Router>
-      <Navbar/>
+      <Navbar />
       <Routes>
         <Route path="/post/:id" element={<SinglePostPage />} />
         <Route path="/users" element={<Users />} />

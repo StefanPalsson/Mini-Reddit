@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { addComment } from '../api/api';
 
-function CreateComment({setComments}) {
+function CreateComment({ setComments }) {
 
   const [inputs, setInputs] = useState({});
 
@@ -23,7 +23,7 @@ function CreateComment({setComments}) {
       title: inputs.id,
       body: inputs.comment,
       userId: 1,
-      user: {username: inputs.username}
+      user: { username: inputs.username }
     };
 
     // update comment state with new value
@@ -33,8 +33,8 @@ function CreateComment({setComments}) {
   }
   return (
     <div>
-        <>
-          <form className='commentForm' onSubmit={handleSubmit}>
+      <>
+        <form className='commentForm' onSubmit={handleSubmit}>
           <h3>Write something useful or nice</h3>
           <label>Comment: <br></br>
             <input
@@ -43,19 +43,19 @@ function CreateComment({setComments}) {
               value={inputs.comment || ""}
               onChange={handleChange}
             />
-            </label><br></br>
-            <label>
-              User: <br></br>
-              <input
-                type="text"
-                name="username"
-                value={inputs.username || ""}
-                onChange={handleChange}
-              />
-            </label>
-            <button type='submit'>Send</button>
-          </form>
-        </>
+          </label><br></br>
+          <label>
+            User: <br></br>
+            <input
+              type="text"
+              name="username"
+              value={inputs.username || ""}
+              onChange={handleChange}
+            />
+          </label>
+          <button type='submit'>Send</button>
+        </form>
+      </>
     </div>
   )
 }

@@ -5,6 +5,7 @@
     background-color: black;
     overflow-y: disabled;
 }
+
 .form {
     flex-direction: column;
     display: flex;
@@ -14,19 +15,24 @@
     margin: 2rem;
     border-radius: 0.4rem;
 }
-input, textarea {
+
+input,
+textarea {
     width: 80%;
     padding: 0.4rem;
     background-color: #8E9191;
 }
+
 .form label {
     margin-top: 0.5rem;
     margin-right: 0.2rem;
 }
+
 .submitBtn {
     display: flex;
     justify-content: end;
 }
+
 input[type="submit"] {
     background-color: black;
     border: none;
@@ -37,6 +43,7 @@ input[type="submit"] {
     padding: 0.4rem;
     text-transform: uppercase;
 }
+
 input[type="submit"]:hover {
     background-color: rgb(40, 104, 104);
     font-weight: 400;
