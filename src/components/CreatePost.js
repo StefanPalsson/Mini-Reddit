@@ -1,19 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { getAllUsers } from "../api/api";
-import { addPost } from "../api/api";
 import "../styles/createpost.css";
 import "../styles/MainPage.css";
 
-/* ASSIGNMENT:
-# Huvudsidan ska också innehålla följande funktionalitet:
-# Skapa nytt inlägg
-# Denna funktionalitet implementeras genom att välja vilken användare som ska skapa inlägget. 
-# Detta är inte realistiskt och inte hur reddit fungerar eftersom man vanligtvis är inloggad på en användare, men det är så uppgiften är. Vid skapandet av inlägget ska man alltså få välja vilken användare (utav de som API:et innehåller) som skapar inlägget.
-# Ni skall anroppa API:et för att skapa nya inlägg (se endpoint)
-# Tänk på att API:et inte faktiskt ändrar inlägg-databasen så ni måste hantera det lokalt
 
-TODO change props passed to this function
-*/
 
 function CreatePost({ setPosts, posts }) {
   const [user, setUser] = useState([]);
@@ -30,24 +20,15 @@ function CreatePost({ setPosts, posts }) {
       reactions: 0,
       title: inputs.title,
       body: inputs.content,
-      userId: parseInt(inputs.id), // user id genom id
-      tags: [], // tags?
+      userId: parseInt(inputs.id), 
+      tags: [], 
     };
 
-    //  adda newpost till staten
+  
     setPosts((prevPosts) => [...prevPosts, newPost]);
-    // rensa input
     setInputs({});
   };
 
-  // Tog bort det här för att posten inte ska komma från apiet utan från kommentarsfältet
-
-  // const handleSubmit = async (e) => {
-  //     e.preventDefault();
-  //     await addPost(inputs)
-  //     //clear inputfields
-  //     setInputs({})
-  // };
 
   const handleChange = (event) => {
     console.log(event.target.value);

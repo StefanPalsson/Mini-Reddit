@@ -13,7 +13,6 @@ function SinglePostPage() {
   const { id } = useParams();
   const location = useLocation();
   const [comments, setComments] = useState([]);
-  //state to handle if "add comment is clicked"
   const [btnClicked, setbtnClicked] = useState(false);
 
   useEffect(() => {
@@ -39,7 +38,6 @@ function SinglePostPage() {
   useEffect(() => {
     fetch("https://dummyjson.com/comments")
       .then((res) => res.json())
-      //store data from fetch in comments-state
       .then((res) => setComments(res.comments));
   }, []);
 

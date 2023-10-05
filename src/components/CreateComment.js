@@ -15,7 +15,7 @@ function CreateComment({ setComments }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    //add comment to server
+
     addComment(inputs);
 
     //store input in object
@@ -26,11 +26,10 @@ function CreateComment({ setComments }) {
       user: { username: inputs.username }
     };
 
-    // update comment state with new value
     setComments((initialval) => [...initialval, newComment]);
-    // clear input
     setInputs({});
   }
+
   return (
     <div>
       <>

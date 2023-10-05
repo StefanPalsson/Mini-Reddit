@@ -28,14 +28,13 @@ export const getSinglePost = async (postId) => {
   return get(`/posts/${postId}`);
 };
 
-export const createUser = async (username, password, email) => { };
 
 export const getUser = async (userId) => {
   return get(`/users/${userId}`);
 };
 
 const addPost = async (result) => {
-  // const res = await fetch(`${baseURL}/posts/add`, {
+
   await fetch(`${baseURL}/posts/add`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -55,8 +54,9 @@ const getAllUsers = async () => {
   const userArray = data.users.map((user) => user);
   return userArray;
 };
+
 const addComment = async (inputs) => {
-  const res = await fetch("https://dummyjson.com/comments/add", {
+  await fetch("https://dummyjson.com/comments/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

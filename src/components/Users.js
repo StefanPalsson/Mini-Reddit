@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { getUser } from '../api/api';
 
 
-const Users = ({ userId }) => { // hämtar userdId som prop
-  const [user, setUser] = useState(null); //initiliserar till nulll
+const Users = ({ userId }) => {
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getUser(userId) // Fetch a single user by userId
+    getUser(userId)
       .then(user => {
         if (user) {
           setUser(user);
